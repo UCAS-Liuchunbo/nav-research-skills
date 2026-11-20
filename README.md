@@ -38,13 +38,37 @@
 | :--- | :--- | :--- | :--- |
 | [find-skills](find-skills/SKILL.md) | 检索、比较和安装适合任务的技能，连接 Skills CLI 与技能生态 | **Vercel** · 第三方收录 | 以收录内容为准 |
 | [nav-sciplot](nav-sciplot/SKILL.md) | 基于 Matplotlib 与 SciencePlots 的导航科研绘图，支持中英文、自定义样式及 SVG / PDF / PNG 导出 | **ColourDyeing** · 自制 | **V2.0** · 2026-11-16 |
-| [nav-illustrations](nav-illustrations/SKILL.md) | 面向导航与工程研究的学术插画，覆盖单体场景、局部组合和全页系统示意图 | **ColourDyeing** · 自制 | **V2.0** · 2026-11-16 |
+| [nav-illustrations](nav-illustrations/SKILL.md) | 面向导航与工程研究的学术插画，默认采用真实实物/科研图 + 矢量混合示意，支持单体、局部组合与全页系统图 | **ColourDyeing** · 自制（本地扩展） | **V2.1** · 2026-11-20 |
 | [session-handoff](session-handoff/SKILL.md) | 将目标、进度、关键决策和后续任务整理为交接文档，便于继续研究工作 | **OneWave AI** · 第三方收录 | 以收录内容为准 |
 
-### 自制技能 · V2.0 更新
+### 自制技能 · V2.0 / V2.1 更新
 
-- **nav-sciplot**：新增环境复用与本机环境记录，通过 `StyleConfig` 集中管理样式，支持按需依赖与独立复现包。
-- **nav-illustrations**：扩展三种插画组织模式，按分类目录选择参考案例，增强可编辑标签和技术连线的交付。
+- **nav-sciplot（V2.0）**：新增环境复用与本机环境记录，通过 `StyleConfig` 集中管理样式，支持按需依赖与独立复现包。
+- **nav-illustrations（V2.0）**：扩展三种插画组织模式，按分类目录选择参考案例，增强可编辑标签和技术连线的交付。
+- **nav-illustrations（V2.1 · 2.5D 美学保留 + 真实素材有机融合升级）**：
+  - **2.5D 视觉骨架 + 真实素材有机嵌入（全局无条件遵守）**：在完整保留原版 V2.0 克制 2.5D 工程插画美感、统一透视与流畅动线的基础上，于关键技术节点原位融入真实卫星透明抠图、圆形硬件放大视窗（实测载体 / 传感器模组）及同色系定量科学图浮卡，既提升工程真实感与定量说服力，又杜绝退化为扁平照片方框拼贴；
+  - **四项构图与文字硬核查**：空间尺度严格对齐、实物紧扣核心研究对象、同页文字去重与直白图意释义（严禁出现“模拟示例 / Placeholder”等破坏学术感的占位字样）、终端成果采用轻量化具象载具 + 极简短标签；
+  - **主次与辅助视觉语法**：主线数据流与核心融合平台保持高辨识度，辅助支撑路径清晰标注作用机理，关键关系词直接压在对应连线上；
+  - **PPTX 版式闭环与隐私保护**：新增 [`inspect_pptx_layout.py`](nav-illustrations/scripts/inspect_pptx_layout.py) 自动提取 `.pptx` 槽位比例、主色与字体，规范“原生可编辑版 + 一体化高清图版”双轨交付，并在 [`.gitignore`](.gitignore) 中严格忽略个人 `.pptx`/`.pdf`/`.docx`/`.xlsx`、本地环境记录与 `outputs/` 输出。
+
+#### 效果对比：原版 V2.0 纯 AI 工程插画 vs. V2.1 2.5D 骨架 + 真实素材有机融合
+
+<table>
+  <tr>
+    <th width="50%">原版 V2.0 · 纯 AI 克制 2.5D 工程插画 + 独立标签</th>
+    <th width="50%">升级 V2.1 · 保留 2.5D 美学 + 真实实物与定量曲线融合</th>
+  </tr>
+  <tr>
+    <td><img src="nav-illustrations/assets/comparisons/before_pure_ai.png" alt="原版 V2.0：遵循 nav-illustrations 纯白背景克制 2.5D 风格的多源融合定位示意图"></td>
+    <td><img src="nav-illustrations/assets/comparisons/after_hybrid_real_assets.png" alt="升级 V2.1：保留 2.5D 城市场景骨架，原位融入真实导航卫星、实测车载 LiDAR 与 MEMS IMU 放大视窗及 nav-sciplot 定量误差曲线"></td>
+  </tr>
+  <tr>
+    <td>遵循原版 V2.0 规范（白底克制 2.5D + 独立标签），构图清爽美观；但关键器件与定位结果均为概念化绘制，缺少实物锚点与定量误差支撑。</td>
+    <td>完整保留原版 2.5D 建筑场景与流畅数据流骨架，同时将卫星原位升级为真实卫星抠图，通过圆形放大视窗嵌入实测车载平台与 MEMS IMU 实物，并在融合平台上方挂接同色系 <code>nav-sciplot</code> 定量误差对比曲线与贴线辅助关系标签。</td>
+  </tr>
+</table>
+
+> <sub>公开对比案例仅使用公开授权素材与脚本生成数据：导航卫星模型来自 Wikimedia Commons（Public Domain），车载感知实测平台来自 Wikimedia Commons（CC BY-SA 4.0），MEMS IMU 实物照来自 Wikimedia Commons（CC BY-SA 3.0），误差对比曲线由本仓库 <code>nav-sciplot</code> 绘制。</sub>
 
 科研绘图侧重快速、批量的数据可视化与样式复用；投稿前仍需结合期刊要求精调。插画侧重技术关系和视觉表达，具体交付形式取决于可用的图像与演示文稿工具。
 

@@ -7,8 +7,14 @@ __pycache__/
 /.env
 /outputs/
 
-# Local manuals and working data
-/*.docx
+# Local manuals, slides, papers, and working data
+*.docx
+*.pptx
+*.ppt
+*.pdf
+*.xlsx
+**/environment.local.json
+/local-assets/
 /nav-sciplot/results.csv
 
 # Local-only illustration references
